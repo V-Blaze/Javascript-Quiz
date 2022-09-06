@@ -1,0 +1,1 @@
+export const name:string = 'Valentine Blaze 1'
