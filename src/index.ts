@@ -11,26 +11,40 @@ const anserBoxA = document.querySelector<HTMLDivElement>('.option-a')!;
 const anserBoxB = document.querySelector<HTMLDivElement>('.option-b')!;
 const anserBoxC = document.querySelector<HTMLDivElement>('.option-c')!;
 const anserBoxD = document.querySelector<HTMLDivElement>('.option-d')!;
-
+const optionBoxes = document.querySelectorAll<HTMLDivElement>('.q-options')!;
+const answeredQ = document.querySelector<HTMLSpanElement>('.answered-q')!;
+const totalQuiz = document.querySelector<HTMLSpanElement>('.total-q')!;
+const quizScore = document.querySelector<HTMLSpanElement>('.score')!;
 
 const userName: string | null = localStorage.getItem('userName');
 
-const correct:Number  = 0
-const wrong:Number   = 0
-const totalQ:Number = 20
-const totalScore:Number = 0
+let correct  = 0
+let wrong   = 0
+let totalQ = 20
+let totalScore = 0
+let answeredQuestion = 0
+const attemptedQuestions:Array<Number> = []
 
+let QId:Number;
 let curQuestion:string = ''
+let curCorrectAns:string = ''
 let optionA:string = ''
 let optionB:string = ''
 let optionC:string = ''
 let optionD:string = ''
+
 
 const init = ():void =>{
     correctAns.innerText = correct.toString();
     wrongAns.innerText = wrong.toString();
     totalAns.innerText = totalQ.toString();
     score.innerHTML = `Score : ${totalScore.toString()}`
+
+}
+
+
+const runQuiz = ():void =>{
+    
 }
 
 const showQuestion = ():void =>{
@@ -39,30 +53,67 @@ const showQuestion = ():void =>{
     anserBoxB.innerText = optionB
     anserBoxC.innerText = optionC
     anserBoxD.innerText = optionD
+    
 }
 
 const getQuestion = async () => {
     const response = await fetch("./question.json");
-    
+
+    let index:any = getId()
+    console.log(index, attemptedQuestions)
 
     try {
         const data = await response.json()
-        const quizQuestion = data[0]
+        const quizQuestion = data[index];
+
         const {question, options, answer} = quizQuestion
         curQuestion = question
         optionA = options.a
         optionB = options.b
         optionC = options.c
         optionD = options.d
-
-
-        console.log(question)
+        curCorrectAns = answer
+        console.log(answer)
         showQuestion()
     } catch (error) {
         console.log(error)
     }
+}
 
+
+const getPlayerDetails = ():void =>{
+    answeredQ.innerText = answeredQuestion.toString()
+    totalQuiz.innerText = totalQ.toString()
+    quizScore.innerText = totalScore.toString()
+}
+
+const correctChoice = ():void =>{
+    getQuestion()
+    correct += 1
+    totalScore += 2
+    answeredQuestion++
+    console.log(answeredQuestion)
+
+    answeredQ.innerText = answeredQuestion.toString()
+    quizScore.innerText = totalScore.toString()
+}
+
+const wrongChoice = ():void =>{
+    getQuestion()
+    wrong += 1
+    answeredQuestion++
     
+
+    answeredQ.innerText = answeredQuestion.toString()
+}
+
+const getId = ():Number =>{
+    QId = Math.floor(Math.random() * 2)
+    // while(attemptedQuestions.includes(QId) && attemptedQuestions.length < 2){
+    //     QId = Math.floor(Math.random() * 2)
+    // }
+    attemptedQuestions.push(QId)
+    return QId
 }
 
 const greet = ():void =>{
@@ -73,11 +124,50 @@ const greet = ():void =>{
     else greeting.innerText = 'Good Evening!';
 }
 
+
+
 if(window.location.pathname == '/public/quiz.html'){
     getQuestion()
+    getPlayerDetails()
+
+
+    anserBoxA.addEventListener('click', ()=>{
+        if(anserBoxA.textContent == curCorrectAns){
+            correctChoice()
+        } else{
+            wrongChoice()
+        }
+    })
+    
+    anserBoxB.addEventListener('click', ()=>{
+        if(anserBoxB.textContent == curCorrectAns){
+            correctChoice()
+        } else{
+            wrongChoice()
+        }
+    })
+    
+    anserBoxC.addEventListener('click', ()=>{
+        if(anserBoxC.textContent == curCorrectAns){
+            correctChoice()
+        } else{
+            wrongChoice()
+        }
+    })
+    
+    anserBoxD.addEventListener('click', ()=>{
+        if(anserBoxD.textContent == curCorrectAns){
+            correctChoice()
+        } else{
+            wrongChoice()
+        }
+    })
 }
 
-
+if(window.location.pathname == '/public/index.html'){
+    init()
+    greet()
+}
 
 window.onload = ():void => {
     // localStorage.clear();
@@ -89,8 +179,7 @@ window.onload = ():void => {
         User.innerText = `Hello ${userName}`
     }
 
-    init()
-    greet()
+
     
 }
 

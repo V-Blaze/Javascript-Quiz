@@ -202,6 +202,7 @@ footer span {
     background-color: beige;
     text-align: center;
     overflow: auto;
+    cursor: pointer;
 }
 
 .quiz-background {
@@ -288,6 +289,7 @@ footer span {
         border: 1px solid black;
         width: 65vh;
         border-radius: 10px;
+        cursor: pointer;
     }
 
 
