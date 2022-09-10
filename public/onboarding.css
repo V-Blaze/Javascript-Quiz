@@ -116,3 +116,9 @@
 .onboarding-container .dot.active {
     background: #222;
 }
+
+#name {
+    border-radius: 8px;
+    height: 2rem;
+    text-align: center;
+}

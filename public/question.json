@@ -1,0 +1,23 @@
+[
+    {
+        "question": "what is JavaScript",
+        "options":{
+            "a": "An object-oriented computer programming language commonly used to create interactive effects within web browsers.",
+            "b": "An open-source server-side scripting language that many devs use for web development.",
+            "c": "A simple design language intended to simplify the process of making web pages presentable.",
+            "d": "A strongly typed programming language that builds on JavaScript, giving you better tooling at any scale."
+        },
+        "answer": "An object-oriented computer programming language commonly used to create interactive effects within web browsers."
+    },
+
+    {
+        "question": "who created JavaScript",
+        "options":{
+            "a": "Rasmus Lerdorf",
+            "b": "Brendan Eich",
+            "c": "Carl Benz",
+            "d": "Anders Hejlsberg"
+        },
+        "answer": "Brendan Eich"
+    }
+]

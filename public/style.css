@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Sniglet&display=swap');
+
 * {
     padding: 0px;
     margin: 0px;
+    font-family: 'Sniglet', cursive;
 }
 
 body {
@@ -38,7 +41,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: green;
+    background-color: rgb(24, 24, 152);
     color: aliceblue;
     margin-top: 10px;
     border-radius: 20px;
@@ -47,7 +50,7 @@ header {
 }
 
 .quiz-history {
-    border: solid red 2px;
+    /* border: solid red 2px; */
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -69,6 +72,20 @@ header {
     justify-content: center;
 }
 
+.score-history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-img {
+    height: 70%;
+    width: 70%;
+    background: aqua;
+    border-radius: 50px;
+}
+
 .quiz-type {
     height: 30%;
     width: 90%;
@@ -86,7 +103,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: green;
+    background-color: rgb(24, 24, 152);
     margin: 4px;
     border-radius: 16px;
     text-align: center;
@@ -177,16 +194,20 @@ footer span {
 }
 
 .q-options {
-    height: 15%;
+    height: 20%;
     border: 1px solid black;
-    width: 70%;
+    width: 80%;
     border-radius: 10px;
+    font-size: smaller;
+    background-color: beige;
+    text-align: center;
+    overflow: auto;
 }
 
 .quiz-background {
     height: 30%;
     width: 100%;
-    background-color: green;
+    background-color: rgb(24, 24, 152);
     position: absolute;
     top: 0px;
     left: 0px;
@@ -210,6 +231,46 @@ footer span {
     height: 150px;
 }
 
+.c-img {
+    max-width: 15px;
+    height: 15px;
+    background: green;
+    border-radius: 50px;
+
+}
+
+.w-img {
+    max-width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50px;
+
+}
+
+.t-img {
+    max-width: 15px;
+    height: 15px;
+    background: orange;
+    border-radius: 50px;
+}
+
+.correct,
+.wrong,
+.total {
+    /* font-weight: bold; */
+    font-size: medium;
+    margin-left: 6px;
+    /* padding-bottom: 16px; */
+
+
+}
+
+.quiz-history span {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
 @media only screen and (min-width : 992px) {
     .main {
         width: 60%;
@@ -223,7 +284,7 @@ footer span {
     }
 
     .q-options {
-        height: 15%;
+        height: 20%;
         border: 1px solid black;
         width: 65vh;
         border-radius: 10px;

@@ -6,6 +6,7 @@ const steps = document.querySelectorAll('.onboarding-container .step');
 const stepsContainer = document.querySelector('.onboarding-container .steps');
 const nextBtn = document.querySelector('.onboarding-container .next-btn');
 const dots = document.querySelectorAll('.onboarding-container .dot');
+const userName = document.querySelector('#name');
 
 let stepPosition = 0;
 let currentStep = 0;
@@ -41,6 +42,11 @@ nextBtn.addEventListener('click', () => {
 	currentStep++;
 
 	if (currentStep >= steps.length) {
+		if (userName.value == '') return;
+		localStorage.setItem('userName', `${userName.value}`);
+		window.location.replace('./');
+
+		console.log(userName.value);
 		stepsContainer.style.transition = 'unset';
 		onboardingContainer.classList.remove('active');
 		onboardingOverlay.classList.remove('active');
@@ -62,3 +68,11 @@ nextBtn.addEventListener('click', () => {
 	}
 });
 init();
+
+// window.onload = () => {
+// 	// localStorage.clear();
+
+// 	if (localStorage.getItem('userName')) {
+// 		window.location.replace('./');
+// 	}
+// };
