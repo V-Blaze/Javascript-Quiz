@@ -17,12 +17,14 @@ const totalQuiz = document.querySelector<HTMLSpanElement>('.total-q')!;
 const quizScore = document.querySelector<HTMLSpanElement>('.score')!;
 const QwrongCount = document.querySelector<HTMLSpanElement>('#wrong')!;
 const QrightCount = document.querySelector<HTMLSpanElement>('#right')!;
+const modal = document.querySelector('.game-background')!;
+const quizBtn = document.querySelector<HTMLButtonElement>('.quiz-btn')!;
 
 const userName: string | null = localStorage.getItem('userName');
+let span;
 
-
-let correct  = 0
-let wrong   = 0
+let correct: number = Number(localStorage.getItem('correct'))
+let wrong: number = Number(localStorage.getItem('wrong'))
 let totalQ = 20
 let totalScore: number = 0;
 let generalTotalScore: number = Number(localStorage.getItem('totalScore'))
@@ -39,21 +41,14 @@ let optionB:string = ''
 let optionC:string = ''
 let optionD:string = ''
 
+let index:any = 0
+
 let scoreTimeout:any;
 
-// let levelOne:Array<number> = [0, 1, 2,3, 4, 5, 6,7,8,9,10,
-//                                 11,12,13,14,15,16,17,18,19,20,
-//                                     21,22,23,24,25]
 
-                                
-
-// const getRandomIndex = (arr: Array<number>):number =>{
-//     let index:number = arr[Math.floor(Math.random() * arr.length)];
-//     let newArr = arr.splice(index, 1)
-
-//     return index
-// }
-
+let levelOne:Array<number> = [0, 1, 2,3, 4, 5, 6,7,8,9,10,
+    11,12,13,14,15,16,17,18,19,20,
+        21,22,23,24,25]
 
 const init = ():void =>{
     correctAns.innerText = correct.toString();
@@ -70,13 +65,13 @@ const showQuestion = ():void =>{
     anserBoxB.innerText = optionB
     anserBoxC.innerText = optionC
     anserBoxD.innerText = optionD
-    
+    // runQuiz()
 }
 
 const getQuestion = async () => {
     const response = await fetch("./question.json");
 
-    let index:any = getId()
+    // let index:any = getRandomIndex(levelOne)
     // console.log(index, attemptedQuestions)
 
     try {
@@ -93,7 +88,7 @@ const getQuestion = async () => {
         curCorrectAns = answer
 
         // console.log(answer)
-
+        index++
         showQuestion()
     } catch (error) {
         console.log(error)
@@ -160,7 +155,7 @@ const correctChoice = ():void =>{
     getQuestion()
     runQuiz()
     correct += 1
-    totalScore += 2
+    totalScore += 4
     answeredQuestion++
     console.log(answeredQuestion)
 
@@ -170,6 +165,11 @@ const correctChoice = ():void =>{
 
     localStorage.setItem('totalScore', totalScore.toString())
     clearTimeout(scoreTimeout)
+
+    if(answeredQuestion > 20){
+        console.log('completed')
+        quizCompleted()
+    }
 }
 
 const wrongChoice = ():void =>{
@@ -183,16 +183,39 @@ const wrongChoice = ():void =>{
     QwrongCount.innerText = `Wrong : ${wrong.toString()}`
 
     clearTimeout(scoreTimeout)
+    if(answeredQuestion > 20){
+        console.log('completed')
+        quizCompleted()
+    }
 }
 
-const getId = ():number =>{
-    QId = Math.floor(Math.random() * 2)
-    // while(attemptedQuestions.includes(QId) && attemptedQuestions.length < 2){
-    //     QId = Math.floor(Math.random() * 2)
-    // }
-    attemptedQuestions.push(QId)
-    return QId
+const quizCompleted = ():void=>{
+        // let item = `${totalScore}`;
+		// span = document.createElement('span');
+		// let text = document.createTextNode(item);
+		// span.appendChild(text);
+		// document.getElementById('final-score')!.appendChild(span);
+		// toggleModal();
+        
+
+
+        window.location.assign('/public/index.html')
+        localStorage.setItem('correct', correct.toString())
+        localStorage.setItem('wrong', wrong.toString())
 }
+
+// const getRandomIndex = (arr: Array<number>):number =>{
+// let index:number = arr[Math.floor(Math.random() * arr.length)];
+// let newArr = arr.splice(index, 1)
+// levelOne = arr
+// console.log(levelOne)
+// return index
+// }
+
+// const toggleModal = () => {
+//     modal.classList.toggle('show-modal');
+// };
+
 
 const greet = ():void =>{
     
@@ -205,6 +228,8 @@ const greet = ():void =>{
 
 
 if(window.location.pathname == '/public/quiz.html'){
+    wrong = 0
+    correct = 0
     getQuestion()
     getPlayerDetails()
     runQuiz()
@@ -212,8 +237,14 @@ if(window.location.pathname == '/public/quiz.html'){
 }
 
 if(window.location.pathname == '/public/index.html'){
+
     init()
     greet()
+
+    quizBtn.addEventListener('click', ()=>{
+        window.location.replace('/public/quiz.html');
+    })
+
 }
 
 window.onload = ():void => {

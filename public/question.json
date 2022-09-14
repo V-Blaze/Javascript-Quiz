@@ -1,13 +1,13 @@
 [
     {
-        "question": "what is JavaScript",
+        "question": "what is JavaScript?",
         "options":{
-            "a": "An object-oriented computer programming language commonly used to create interactive effects within web browsers.",
-            "b": "An open-source server-side scripting language that many devs use for web development.",
+            "a": "JavaScript is a scripting language used to make the website interactive.",
+            "b": "An open-source server-side scripting language that many devs use only for web development.",
             "c": "A simple design language intended to simplify the process of making web pages presentable.",
             "d": "A strongly typed programming language that builds on JavaScript, giving you better tooling at any scale."
         },
-        "answer": "An object-oriented computer programming language commonly used to create interactive effects within web browsers."
+        "answer": "JavaScript is a scripting language used to make the website interactive."
     },
 
     {
@@ -19,5 +19,235 @@
             "d": "Anders Hejlsberg"
         },
         "answer": "Brendan Eich"
+    },
+    {
+        "question": " Which one is not a data types supported by JavaScript?",
+        "options":{
+            "a": "Undefined",
+            "b": "Boolean",
+            "c": "Stringify",
+            "d": "Number"
+        },
+        "answer": "Stringify"
+    },
+    {
+        "question": "Which one is not a feature of JavaScript?",
+        "options":{
+            "a": "It is a lightweight, interpreted programming language",
+            "b": "It is complementary to and integrated with Java",
+            "c": "It is an open and cross-platform scripting language.",
+            "d": "It is used to style a webpage"
+        },
+        "answer": "It is used to style a webpage"
+    },
+    {
+        "question": "Is JavaScript a case-sensitive language?",
+        "options":{
+            "a": "Maybe",
+            "b": "No",
+            "c": "Yes",
+            "d": "All of the Above"
+        },
+        "answer": "Yes"
+    },
+    {
+        "question": "How can you create an array in JavaScript?",
+        "options":{
+            "a": "let arr = {}",
+            "b": "let arr = ()",
+            "c": "let arr = new {}",
+            "d": "let arr = []"
+        },
+        "answer": "let arr = []"
+    },
+    {
+        "question": "What is a name function in JavaScript?",
+        "options":{
+            "a": "A named function declares a name as soon as it is defined.",
+            "b": "A named function has a name before it is defined.",
+            "c": "A function that has your name.",
+            "d": "None of the above"
+        },
+        "answer": "A named function declares a name as soon as it is defined."
+    },
+    {
+        "question": "What are the scopes of a variable in JavaScript?",
+        "options":{
+            "a": "An inbuilt javascript variable",
+            "b": "This refers to the owner object and in a function",
+            "c": "Represents the arguments that are passed to a function.",
+            "d": "The scope of a variable is the region of your program in which it is defined."
+        },
+        "answer": "The scope of a variable is the region of your program in which it is defined."
+    },
+    {
+        "question": "what is Global Variables?",
+        "options":{
+            "a": "A global variable has global scope which means it is visible everywhere in your JavaScript code.",
+            "b": "A global variable will be visible only within a function where it is defined.",
+            "c": "This refers to the owner object and in a function",
+            "d": "Represents the arguments that are passed to a function."
+        },
+        "answer": "A global variable has global scope which means it is visible everywhere in your JavaScript code."
+    },
+    {
+        "question": "what is local Variables?",
+        "options":{
+            "a": "A local variable has global scope which means it is visible everywhere in your JavaScript code.",
+            "b": "A local variable will be visible only within a function where it is defined.",
+            "c": "This refers to the owner object and in a function",
+            "d": "Represents the arguments that are passed to a function."
+        },
+        "answer": "A local variable will be visible only within a function where it is defined."
+    },
+    {
+        "question": "All except one is not a built-in method of array",
+        "options":{
+            "a": "pop()",
+            "b": "reverse()",
+            "c": "add()",
+            "d": "CharAt()"
+        },
+        "answer": "add()"
+    },
+    {
+        "question": "What is not a way to define a variable in JavaScript?",
+        "options":{
+            "a": "Let",
+            "b": "Const",
+            "c": "Push",
+            "d": "Var"
+        },
+        "answer": "Push"
+    },
+    {
+        "question": "What is NaN in JavaScript?",
+        "options":{
+            "a": "NaN is a short form of Not a Number. ",
+            "b": "NaN is a short form of Not a New. ",
+            "c": "Non of the above",
+            "d": "NaN is a short form of Not a Needed Number. "
+        },
+        "answer": "NaN is a short form of Not a Number. "
+    },
+    {
+        "question": "How not to empty an Array in JavaScript?",
+        "options":{
+            "a": "arrayList = []",
+            "b": "arrayList.length = 0;",
+            "c": "arrayList = 0",
+            "d": "arrayList.splice(0, arrayList.length);"
+        },
+        "answer": "arrayList = 0"
+    },
+    {
+        "question": "Arrays in JavaScript are defined by which of the following statements?",
+        "options":{
+            "a": "It is an ordered list of values",
+            "b": "It is an ordered list of objects",
+            "c": "It is an ordered list of string",
+            "d": "It is an ordered list of functions"
+        },
+        "answer": "It is an ordered list of values"
+    },
+    {
+        "question": "Which of the following can be used to call a JavaScript Code Snippet?",
+        "options":{
+            "a": "Function/Method",
+            "b": "Preprocessor",
+            "c": "Triggering Event",
+            "d": "RMI"
+        },
+        "answer": "Function/Method"
+    },
+    {
+        "question": "Which of the following scoping type does JavaScript use?",
+        "options":{
+            "a": "Sequential",
+            "b": "Segmental",
+            "c": "Lexical",
+            "d": "Literal"
+        },
+        "answer": "Lexical"
+    },
+    {
+        "question": "What is the basic difference between JavaScript and Java?",
+        "options":{
+            "a": "Functions are considered as fields",
+            "b": "Functions are values, and there is no hard distinction between methods and fields",
+            "c": "Variables are specific",
+            "d": "There is no difference"
+        },
+        "answer": "Functions are values, and there is no hard distinction between methods and fields"
+    },
+    {
+        "question": "Why JavaScript Engine is needed?",
+        "options":{
+            "a": "Both Compiling & Interpreting the JavaScript",
+            "b": "Parsing the javascript",
+            "c": "Interpreting the JavaScript",
+            "d": "Compiling the JavaScript"
+        },
+        "answer": "Interpreting the JavaScript"
+    },
+    {
+        "question": "Which of the following methods/operation does javascript use instead of == and !=?",
+        "options":{
+            "a": "JavaScript uses equalto()",
+            "b": "JavaScript uses equals() and notequals() instead",
+            "c": "JavaScript uses bitwise checking",
+            "d": "JavaScript uses === and !== instead"
+        },
+        "answer": "JavaScript uses === and !== instead"
+    },
+    {
+        "question": "Which of the following is the property that is triggered in response to JS errors?",
+        "options":{
+            "a": "onclick",
+            "b": "onerror",
+            "c": "onmessage",
+            "d": "onexception"
+        },
+        "answer": "onerror"
+    },
+    {
+        "question": "Which of the following is not an error in JavaScript?",
+        "options":{
+            "a": "Missing of Bracket",
+            "b": "Division by zero",
+            "c": "Syntax error",
+            "d": "Missing of semicolons"
+        },
+        "answer": "Division by zero"
+    },
+    {
+        "question": "Which of the following explains correctly what happens when a JavaScript program is developed on a Unix Machine?",
+        "options":{
+            "a": "will work perfectly well on a Windows Machine",
+            "b": "will be displayed as JavaScript text on the browser",
+            "c": "will throw errors and exceptions",
+            "d": "must be restricted to a Unix Machine only"
+        },
+        "answer": "will work perfectly well on a Windows Machine"
+    },
+    {
+        "question": "Which of the following object is the main entry point to all client-side JavaScript features",
+        "options":{
+            "a": "Position",
+            "b": "Window",
+            "c": "Standard",
+            "d": "Location"
+        },
+        "answer": "Window"
+    },
+    {
+        "question": "Among the given statements, which statement defines closures in JavaScript?",
+        "options":{
+            "a": "JavaScript is a function that is enclosed with references to its inner function scope",
+            "b": "JavaScript is a function that is enclosed with references to its lexical environment",
+            "c": "JavaScript is a function that is enclosed with the object to its inner function scope",
+            "d": "None of the mentioned"
+        },
+        "answer": "JavaScript is a function that is enclosed with references to its lexical environment"
     }
 ]
