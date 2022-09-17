@@ -44,7 +44,7 @@ nextBtn.addEventListener('click', () => {
 	if (currentStep >= steps.length) {
 		if (userName.value == '') return;
 		localStorage.setItem('userName', `${userName.value}`);
-		window.location.replace('./');
+		window.location.replace('/index.html');
 
 		console.log(userName.value);
 		stepsContainer.style.transition = 'unset';

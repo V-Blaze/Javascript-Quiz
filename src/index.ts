@@ -69,7 +69,7 @@ const showQuestion = ():void =>{
 }
 
 const getQuestion = async () => {
-    const response = await fetch("./question.json");
+    const response = await fetch("/question.json");
 
     // let index:any = getRandomIndex(levelOne)
     // console.log(index, attemptedQuestions)
@@ -199,7 +199,7 @@ const quizCompleted = ():void=>{
         
 
 
-        window.location.assign('/public/index.html')
+        window.location.assign('/index.html')
         localStorage.setItem('correct', correct.toString())
         localStorage.setItem('wrong', wrong.toString())
 }
@@ -227,7 +227,7 @@ const greet = ():void =>{
 
 
 
-if(window.location.pathname == '/public/quiz.html'){
+if(window.location.pathname == '/quiz.html'){
     wrong = 0
     correct = 0
     getQuestion()
@@ -236,13 +236,13 @@ if(window.location.pathname == '/public/quiz.html'){
 
 }
 
-if(window.location.pathname == '/public/index.html'){
+if(window.location.pathname == '/index.html'){
 
     init()
     greet()
 
     quizBtn.addEventListener('click', ()=>{
-        window.location.replace('/public/quiz.html');
+        window.location.replace('/quiz.html');
     })
 
 }
@@ -252,7 +252,7 @@ window.onload = ():void => {
 
     if(!userName){
         console.log('empty')
-        window.location.replace('./onboarding.html')
+        window.location.replace('/onboarding.html')
     } else{
         User.innerText = `Hello ${userName}`
     }
